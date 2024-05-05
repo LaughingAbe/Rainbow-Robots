@@ -10,7 +10,7 @@
 import zim from "https://zimjs.org/cdn/016/zim";
 
 // See Docs under Frame for FIT, FILL, FULL, and TAG
-new Frame(FIT, 1800, 1800, light, dark, ready);
+new Frame(FIT, 1800, 2400, light, dark, ready);
 
 let colors = [red, orange, yellow, green, blue, purple, pink];
 let Rout = 50;
@@ -95,7 +95,7 @@ function ready() {
     let rectangleHeight = 4*circleDiameter;
     for (let i = 0; i<7; i++){
         let startX = 225;
-        let startY = 250;
+        let startY = 350;
 
         rectangleHeight = 4.5*circleDiameter;
 
@@ -119,15 +119,25 @@ function ready() {
              .pos(startX+2*circleDiameter*i,startY-50*i)
              .on("click", () => playSound(i+13)); // Add click event listener 
             //.drag();
-        triad(i,1,1.5*Rout+4*Rout*i+175,startY+rectangleHeight-125-Rout*i);
+        triad(i,2,1.5*Rout+4*Rout*i+175,startY+rectangleHeight-125-Rout*i);
 
         startY += 500;
-        rectangleHeight = 3.5*circleDiameter;
+        rectangleHeight = 4*circleDiameter;
        
         new Rectangle(rectangleWidth, rectangleHeight, colors[i])
             .pos(startX+2*circleDiameter*i,startY-50*i)
             .on("click", () => playSound(i+13)); // Add click event listener    
+        triad(i, 1, 1.5*Rout+4*Rout*i+175, startY+rectangleHeight-125-Rout*i);
+
+        startY += 500;
+        rectangleHeight = 3.5*circleDiameter;
+
+        new Rectangle(rectangleWidth, rectangleHeight, colors[i])
+            .pos(startX+2*circleDiameter*i,startY-50*i)
+            .on("click", () => playSound(i+13)); // Add click event listener    
         triad(i, 0, 1.5*Rout+4*Rout*i+175, startY+rectangleHeight-125-Rout*i);
+
+        
     };      
 } // end ready
 
